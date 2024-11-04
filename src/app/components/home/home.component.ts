@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit{
     this.flowbiteService.loadFlowbite(flowbite => {
       console.log('Flowbite loaded', flowbite);
     });
-    this.getBookingData()
+    // this.getBookingData()
   }
 
   getBookingData(){
