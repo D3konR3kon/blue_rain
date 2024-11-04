@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductsService {
-  api_url = "http://localhost:3010/api/v1/products/"
+  api_url = "https://blue-rain-api.vercel.app/api/v1/products/"
   constructor(private http: HttpClient) { }
 
   getProducts():Observable<any>{
