@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { CartService } from '../../services/cart.service';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-footer-nav',
@@ -9,7 +12,23 @@ import { RouterLink } from '@angular/router';
   styleUrl: './footer-nav.component.css'
 })
 export class FooterNavComponent {
-cartCount$: any=0;
-favListCount$: any=0;
+  favListCount$ = new BehaviorSubject<number>(0);
+  cartCount$ = new BehaviorSubject<number>(0)
+  isEmpty=true
+  fcolor= '#e01219'
 
+  constructor(private productService: ProductsService, private cartService: CartService, private route : Router) { }
+  
+
+  
+
+  ngOnInit(): void {
+    this.favListCount$ = this.cartService.favList
+    this.cartCount$ = this.cartService.cartItemcount
+    
+  }
+
+  goHome(){
+    this.route.navigateByUrl("/home")
+  }
 }

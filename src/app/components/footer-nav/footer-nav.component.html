@@ -1,6 +1,6 @@
 <div class="fixed bottom-0 left-0 z-50 w-full h-16 bg-slate-100 border-t-2 border-gray-200 dark:bg-gray-700 dark:border-gray-600 sm:hidden">
     <div class="grid h-full max-w-lg grid-cols-4 mx-auto font-medium">
-        <button type="button" class=" group inline-flex flex-col items-center justify-center px-5 hover:bg-lime-400 group hover:text-white hover:border-4 hover:border-white" routerLink="/home">
+        <button type="button" class=" group inline-flex flex-col items-center justify-center px-5 hover:bg-lime-400 group hover:text-white hover:border-4 hover:border-white"  (click)="goHome()">
             <svg class="w-6 h-6  text-gray-500  group-hover:text-white " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                 <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
             </svg>
@@ -22,18 +22,38 @@
           </svg>
           
             <span class="sr-only">Notifications</span>
-            <div class="absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-orange-600 border-2 border-orange-600 rounded-full top-2 end-4 dark:border-gray-900">{{cartCount$ }}</div>
+            <div class="absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-orange-600 border-2 border-orange-600 rounded-full top-2 end-4 dark:border-gray-900">{{cartCount$.value }}</div>
             <span class="text-sm text-center text-gray-500 group-hover:text-white"> Trolley </span>
 
         </button>
   
-        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-lime-400 hover:border-4 hover:border-white group" [routerLink]="'/orders'">
+        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-lime-400 hover:border-4 hover:border-white group" data-popover-target="popover-click" data-popover-trigger="click">
             <svg class="w-7 h-7 text-gray-500 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
               </svg>
               
           <span class="text-sm text-gray-500 group-hover:text-white"> Menu </span>
         </button>
+
+        <div data-popover id="popover-click" role="tooltip" class="absolute z-10 invisible inline-block w-56 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+          <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+              <h3 class="font-semibold text-gray-900 dark:text-white">Vuyo Dila</h3>
+          </div>
+          <!-- <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+            <div class="font-medium ">Vuyo</div>
+            
+          </div> -->
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+            <li>
+              <a routerLink="/userprofile" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+            </li>
+            
+          </ul>
+          <div class="py-2">
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign in</a>
+          </div>
+          <div data-popper-arrow></div>
+      </div>
       
     </div>
   
