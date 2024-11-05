@@ -23,9 +23,14 @@ export class HomeComponent implements OnInit{
   constructor(private flowbiteService: FlowbiteService, private checkoutServ: CheckoutService) {}
   bookings: any
   ngOnInit(): void {
+    
     this.flowbiteService.loadFlowbite(flowbite => {
       console.log('Flowbite loaded', flowbite);
     });
+    
+    localStorage.removeItem('cart_items')
+    localStorage.removeItem('for')
+    localStorage.removeItem('Total')
     // this.getBookingData()
   }
 
