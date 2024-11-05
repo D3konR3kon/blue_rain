@@ -65,6 +65,15 @@ export class CheckoutComponent {
     localStorage.removeItem('cart_items')
     localStorage.removeItem('for')
     localStorage.removeItem('Total')
-    this.router.navigateByUrl('/home')
+    
+    this.cartService.items = []
+    this.cartService.cartTotal.next(0);
+    this.cartService.cartItemcount.next(0)
+    setTimeout(()=>{
+      this.router.navigateByUrl('/home')
+    }, 500)
+
+    }
+    
   }
-}
+
